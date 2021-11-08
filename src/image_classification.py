@@ -14,7 +14,8 @@ class ImageClassification():
 
     def __init__(self):
         self.classes = ['connect', 'mute', 'other', 'volume']
-        self.net = model_zoo.get_model('ResNet50_v2', classes=len(self.classes), pretrained=False)
+#         self.net = model_zoo.get_model('ResNet50_v2', classes=len(self.classes), pretrained=False)
+        self.net = model_zoo.get_model('ResNest50', classes=len(self.classes), pretrained=False)
         param_files = ([x for x in os.listdir('.') if x.endswith('.params')])
         selected = param_files[0]
         self.net.load_parameters(selected)
